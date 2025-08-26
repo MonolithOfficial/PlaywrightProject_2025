@@ -1,3 +1,5 @@
+package ge.tbc.testautomation;
+
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import com.microsoft.playwright.options.AriaRole;
