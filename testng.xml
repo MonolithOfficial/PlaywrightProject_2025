@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="CrossBrowserSuite" thread-count="2" parallel="tests">
+    <test name="ChromeTest">
+        <parameter name="browserType" value="chromium"/>
+        <classes>
+            <class name="ge.tbc.testautomation.WaitsTests"/>
+        </classes>
+    </test>
+    <test name="WebkitTest">
+        <parameter name="browserType" value="webkit"/>
+        <classes>
+            <class name="ge.tbc.testautomation.WaitsTests"/>
+        </classes>
+    </test>
+</suite>

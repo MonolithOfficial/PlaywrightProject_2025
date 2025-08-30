@@ -16,14 +16,20 @@ public class WaitsTests {
     DynamicControlsSteps dynamicControlsSteps;
 
     @BeforeClass
-    public void setUp(){
+    @Parameters({"browserType"})
+    public void setUp(String browserType){
         playwright = Playwright.create();
         BrowserType.LaunchOptions launchOptions = new BrowserType.LaunchOptions();
         launchOptions.setArgs(Arrays.asList("--no-sandbox", "--disable-gpu", "--disable-extensions"));
         launchOptions.setHeadless(false);
 //        launchOptions.setSlowMo(1000);
 //        launchOptions.setTimeout(50000);
-        browser = playwright.chromium().launch(launchOptions);
+        if (browserType.equals("chromium")){
+            browser = playwright.chromium().launch(launchOptions);
+        }
+        else {
+            browser = playwright.webkit().launch(launchOptions);
+        }
     }
 
     @BeforeMethod
