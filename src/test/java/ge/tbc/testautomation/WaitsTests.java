@@ -4,10 +4,16 @@ import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.WaitForSelectorState;
 import ge.tbc.testautomation.data.Constants;
 import ge.tbc.testautomation.steps.theinternet.DynamicControlsSteps;
+import io.qameta.allure.*;
 import org.testng.annotations.*;
 
 import java.util.Arrays;
 
+//@SomeAnnotation("SQDTBC-T1616") // in case of scenarios
+@Test(description = "Tests for Waiting functionality")
+//@Story("")
+//@Feature("")
+//@Epic("")
 public class WaitsTests {
     Playwright playwright;
     Browser browser;
@@ -40,14 +46,21 @@ public class WaitsTests {
         page.navigate("https://the-internet.herokuapp.com/dynamic_controls");
     }
 
-    @Test
+    @Test(priority = 1, description = "SQDTBC-T2727 Testing automatic waits from Playwright")
+    @Description("Some more detailed text")
+    @Severity(SeverityLevel.BLOCKER)
+    @Link("https://fake-jira.com/testcase/SQDTBC-T2828")
+    @Flaky
     public void testAutoWaits() {
         dynamicControlsSteps
                 .clickEnableButton()
                 .clickDisableButton();
     }
 
-    @Test
+    @Test(priority = 2, description = "SQDTBC-T2828 Testing explicit waits from Playwright")
+    @Description("Some more detailed text")
+    @Severity(SeverityLevel.CRITICAL)
+    @Link("https://fake-jira.com/testcase/SQDTBC-T2828")
     public void testExplicitWait() {
         dynamicControlsSteps
                 .clickEnableButton();
